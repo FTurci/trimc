@@ -1,0 +1,38 @@
+# 3d Lennard-Jones melt
+
+
+
+variable	xx equal 4.5
+variable	yy equal 4.5
+variable	zz equal 4.5
+
+variable temperature equal 1.5
+
+units		lj
+atom_style	atomic
+
+# lattice		fcc 0.0001
+region		box block -${xx} ${xx} -${yy} ${yy} -${zz} ${zz}
+create_box	1 box
+create_atoms	1 random  800 1234 box
+mass		1 1.0
+
+
+
+read_dump tj.xyz 50 x y z box no format xyz purge yes replace yes 
+
+velocity	all create ${temperature} 87287 loop geom
+pair_style	lj/cut 2.5
+pair_coeff	1 1 1.0 1.0 2.5
+pair_modify     shift yes
+
+neighbor	0.3 bin
+neigh_modify	delay 0 every 20 check no
+
+fix		1 all nvt temp ${temperature} ${temperature} 0.1
+dump dumper all  atom 100 tj.dump
+
+thermo 500
+
+run		100000
+# rerun tj.xyz dump x y z box no format xyz
