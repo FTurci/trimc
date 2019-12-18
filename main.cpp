@@ -52,7 +52,7 @@ int main(int argc, char *argv[]){
 	double range = rhi;
 	
 	std::string type = "fcc";
-	model.crystal(type,0.6);
+	model.crystal(type,1.2);
 	// model.read_last_from_xyz("small.xyz");
 	
 	model.box.sides[2]*=2.0;

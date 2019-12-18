@@ -17,7 +17,7 @@ class cubicBox : public Box {
 
 		cubicBox(double s,std::vector<double> c) : Box(s,s,s,c)  {
 			side = s;
-			printf(":: Cubix box with side %g and centre %g %g %g.\n",side, centre[0], centre[1], centre[2]);
+			printf(":: Cubic box with side %g and centre %g %g %g.\n",side, centre[0], centre[1], centre[2]);
 		}
 };
 
