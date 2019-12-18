@@ -1,10 +1,11 @@
 ################################################################################
 ### CUSTOMIZE BELOW HERE #######################################################
 
-CXX=g++-9 # define the compiler to use
+WORKDIR=$(shell pwd)
+CXX=g++ # define the compiler to use
 TARGET=main # define the name of the executable
 SOURCES=main.cpp box.cpp particle.cpp system.cpp histogram.cpp interactions.cpp cells.cpp
-CXXFLAGS=-Ofast   -std=c++11 -I/Users/francesco/mymc/eigen/ 
+CXXFLAGS=-Ofast   -std=c++11 -I$(WORKDIR)/eigen/ 
 LFLAGS=-lm 
 
 ################################################################################
