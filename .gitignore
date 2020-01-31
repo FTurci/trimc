@@ -34,3 +34,5 @@
 # Trajectories
 *.xyz
 *.ovito
+
+fluid/
