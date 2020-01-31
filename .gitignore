@@ -35,4 +35,6 @@
 *.xyz
 *.ovito
 
+*.hdf5
+
 fluid/
